@@ -1,0 +1,36 @@
+/*Implemente una estructura para utilizar números complejos en C++, con campos para
+almacenar la parte real y la parte imaginaria. Cree una función que acepte un número
+complejo, calcule su conjugada (negar la parte imaginaria y dejar la parte real tal
+como está) y devuelva el resultado (otro número complejo).*/
+
+#include <iostream>
+
+using namespace std;
+
+struct {
+    int real;
+    int imaginario;
+}Complejo;
+
+int main()
+{
+    char MasOMenos;
+    
+    cout<<"Digite el numero complejo separando su parte real y su parte imaginaria"<<endl;
+    cout<<"Parte real"<<endl;
+    cin>>Complejo.real;
+    cout<<"Parte imaginaria (Obviar la j)"<<endl;
+    cin>>Complejo.imaginario;
+    
+    if(Complejo.imaginario>0)
+    MasOMenos='-';
+    else if(Complejo.imaginario<0){
+        Complejo.imaginario=Complejo.imaginario*(-1);
+    MasOMenos='+';
+    }
+    
+    cout<<"La conjugada del numero complejo es: "<<endl;
+    cout<<Complejo.real<<" "<<MasOMenos<<" "<<Complejo.imaginario<<"j"<<endl;
+    
+    return 0;
+}
