@@ -1,0 +1,48 @@
+//Ejercicio 1: Obtener MCD
+
+
+#include <iostream>
+
+using namespace std;
+
+
+int FuncionMcd(int x, int y);
+
+
+int main (){
+    
+int n1, n2,mcd;
+
+    
+    cout<<"Digite 2 numeros enteros: "<<endl;
+
+    cin>>n1>>n2;
+
+    mcd = FuncionMcd(n1,n2);
+
+    cout<<"El MCD es: "<<mcd;
+
+    return 0;
+
+}
+
+
+int FuncionMcd(int x, int y){
+
+    int res;
+
+    if((x%y)==0)
+
+    return y;
+
+    else{
+
+     res=(x%y);
+
+     x=y;
+
+     y=res;
+
+     FuncionMcd(x,y);
+
+}

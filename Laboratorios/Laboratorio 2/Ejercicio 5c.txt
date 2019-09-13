@@ -1,0 +1,32 @@
+//Ejercicio 5c: Torre de hanoi
+
+#include <iostream>
+using namespace std;
+
+void TorreHanoi(int n,char A,char C,char B)
+{
+	if(n==1)
+	{
+			cout<<"Mueva el bloque "<<n<<" desde "<<A<<" hasta  "<<C<<endl;
+			
+	}
+	else
+	{
+		TorreHanoi(n-1,A,B,C);
+		cout<<"Mueva el bloque "<<n<<" desde "<<A<<" hasta  "<<C<<endl;
+		TorreHanoi(n-1,B,C,A);
+	}
+}
+
+int main(){
+		int n;
+		char A,B,C;
+
+		cout<<"Los clavijas son A B C\n";
+		cout<<"Numero de discos: ";
+		cin>>n;
+		TorreHanoi(n,'A','C','B');
+		
+		return 0;
+		
+}
