@@ -1,0 +1,52 @@
+//Ejercicio 8: Cantidad de digitos
+
+
+#include <iostream>
+
+using namespace std;
+
+int Digitos (int n);
+
+
+int main (){
+
+	int n, digitos;
+
+	cout<<"Ingresar el número"<<endl;
+
+	cin>>n;
+
+    	digitos=Digitos(n);
+
+    	cout<<"La cantidad de digitos del numero es: "<<digitos<<endl;
+
+
+    	return 0;
+
+}
+
+
+
+
+int Digitos (int n){
+
+    int contador=1, aux=10;
+
+    if(aux>n){
+
+    return contador;
+
+    }
+
+    if(aux<=n){
+
+        contador++;
+
+        aux=aux*10;
+
+        Digitos(n);
+
+    }
+
+
+}
