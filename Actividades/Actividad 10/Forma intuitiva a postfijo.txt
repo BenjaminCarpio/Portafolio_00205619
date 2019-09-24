@@ -1,0 +1,25 @@
+Convertir de manera intuitiva a la forma postfija las siguientes expresiones:
+
+
+Expresion 1: A-B/(C*D$E)
+
+
+A-B/(C*DE$)
+
+A-B/(CDE$*)
+
+A-B(CDE$*)/
+
+ABCDE$*/-
+
+
+Expresión 2: ((A+B)*C-(D-E))$(F+G)
+
+
+((AB+)*C-(DE-))$(FG+)
+
+(AB+C*-(DE-))$(FG+)
+
+(AB+C*DE--)$(FG+)
+
+AB+C*DE--FG+$
