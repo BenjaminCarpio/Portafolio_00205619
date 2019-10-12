@@ -1,0 +1,117 @@
+//Libreria y consulta de paginas por libro
+#include <iostream>
+
+#include <string>
+
+using namespace std;
+
+
+struct libro{
+
+string titulo;
+
+    int numPaginas;
+
+    libro *sig;
+
+};
+
+typedef struct libro *Book;
+
+void initialize(Book *s){
+
+	*s  = NULL;
+
+}
+
+void push(Book *s, string nombre, int cantidad){
+
+    struct libro *unNodo = new libro;
+
+    unNodo->titulo = nombre;
+
+    unNodo->numPaginas = cantidad;
+
+    unNodo->sig = *s;
+
+    *s = unNodo;
+
+}
+
+string busqueda(){
+
+    string Abuscar;
+
+    cout<<"Libro a buscar: \n";
+ cin>>Abuscar;
+
+    return Abuscar;
+
+}
+
+int Mostrar(Book *s,string titulo,string Abuscar,int numpag){
+
+	if(Abuscar == (*s)->titulo){
+
+		int	x = (*s)->numPaginas;
+
+		return x;
+
+	}else{
+
+		 struct libro *unNodo = *s;
+
+        string e = (*s)->titulo;
+
+    	int x = (*s)->numPaginas;
+
+        *s = (*s)->sig;
+
+        delete(unNodo);
+
+    return Mostrar(*&s, e ,Abuscar,x);
+
+	}
+
+}
+
+int main(){
+
+    int numpag = 0;
+
+    Book libreria;
+
+    initialize(&libreria);
+
+    cout<<"\t\tLibreria feliz :) "<<endl;
+
+    cout<<"Libros apilados:"<<endl;
+ 
+    cout<<"Pinocho\nPrincipito\nDumbo\nNemo\nCaperucita\nNavidad\n";
+
+    
+    push(&libreria,"Pinocho",9);
+
+    push(&libreria,"Principito",4);
+
+    push(&libreria,"Dumbo",55);
+
+    push(&libreria,"Nemo",42); //42 de la direccion de la pelicula, easter egg xd
+
+    push(&libreria,"Caperucita",109);
+
+    push(&libreria,"Navidad",298);
+
+    
+	string buscar = busqueda();
+
+    numpag = Mostrar(&libreria,buscar,buscar,numpag);
+
+    
+	cout<<"El numero de paginas del libro es:"<< numpag<<endl;
+
+  
+    return 0;
+
+}
+
