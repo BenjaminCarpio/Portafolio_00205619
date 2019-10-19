@@ -1,0 +1,63 @@
+#include<iostream>
+using namespace std;
+
+struct Node{
+	int data;
+	Node *before; 
+	Node *next;
+	
+
+Node *Create(Node *x, int a){
+Node *nuevito = new Node;
+	nuevito->data=a;
+	nuevito->before=NULL;
+	nuevito->next=NULL;
+	x=nuevito;
+	return x;
+}
+Node *Meter(Node *x, int a){
+	Node *nuevito = new Node;
+	nuevito->data=a;
+	nuevito->before=NULL;
+	nuevito->next=x;
+	x->before=nuevito;
+	x=nuevito;
+	return x;
+}
+
+void MostrarInverso(Node *x){
+	Node *aux=x;
+	while(aux !=NULL){
+	cout<<aux->data<<endl; 
+	aux=aux->next;
+}
+}
+void Mostrar(Node *x){
+	Node *aux=x;
+	while(aux->next!=NULL){
+		aux=aux->next;
+	}
+	while(aux !=NULL){
+	cout<<aux->data<<endl; 
+	aux=aux->before;}
+	}
+};
+
+int main(){
+    int a, b, c, d, e;
+    cout<<"Digite 5 numeritos para ingresar a la lista y realizar el proceso de invertir."<<endl;
+    cin>>a>>b>>c>>d>>e;
+	Node *x=NULL;
+	Node *p;
+	x=p->Create(x,a);
+	x=p->Meter(x,b);
+	x=p->Meter(x,c);
+    x=p->Meter(x,d);
+    x=p->Meter(x,e);
+    cout<<"Lista:"<<endl;
+	p->Mostrar(x);
+	cout<<"Lista inversa"<<endl;
+	p->MostrarInverso(x);
+	
+	return 0;
+}
